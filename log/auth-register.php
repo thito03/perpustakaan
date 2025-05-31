@@ -263,8 +263,6 @@
     <!--! END: Apps Init !-->
     <!--! BEGIN: Theme Customizer  !-->
     <script src="../assets/js/theme-customizer-init.min.js"></script>
-    <script src="../assets/js/alert-reg.js"></script>
-    <script src="../assets/js/success.js"></script>
     <!--! END: Theme Customizer !-->
 </body>
 

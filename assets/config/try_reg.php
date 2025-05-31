@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 if (empty($fullname) || empty($email) || empty($password)) {
-    header('Location: ../../log/auth-register.html?error=1');
+    header('Location: ../../log/auth-register.php');
     exit();
 }
 if ($_POST['job'] == 'admin') {
@@ -16,7 +16,7 @@ if ($_POST['job'] == 'pegawai') {
     $sql = "INSERT INTO pegawai (fullname, email, password) VALUES ('$fullname', '$email', '$password')";
 }
 if (mysqli_query($conn, $sql)) {
-    header('Location: ../../log/auth-register.html?success=1');
+    header('Location: ../../log/auth-register.php');
     exit();
 } 
 ?>

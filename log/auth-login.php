@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -239,7 +242,8 @@
     <!--! BEGIN: Theme Customizer  !-->
     <script src="../assets/js/theme-customizer-init.min.js"></script>
     <!--! END: Theme Customizer !-->
-    <script src="../assets/js/alert.js"></script>
 </body>
-
+<?php
+unset($_SESSION['err']);
+?>
 </html>
