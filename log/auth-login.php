@@ -56,6 +56,9 @@ session_start();
                     <h2 class="fs-20 fw-bolder mb-4">Login</h2>
                     <h4 class="fs-13 fw-bold mb-2">Login to your account</h4>
                     <p class="fs-12 fw-medium text-muted">Thank you for get back <strong>Nelel</strong> web applications, let's access our the best recommendation for you.</p>
+
+                    <?= isset($_SESSION['err']['salah']) ? '<div class="alert alert-danger mt-3 mb-0" role="alert">' . $_SESSION['err']['salah'] . '</div>' : '' ?>
+                    
                     <form action="../assets/config/try_in.php" method="post" class="w-100 mt-4 pt-2">
                         <div class="mb-4">
                             <input type="email" name="email" class="form-control" value="t@gmail.com" placeholder="Email" required>
@@ -79,7 +82,7 @@ session_start();
                         </div>
                     </form>
                     <div class="mt-5 text-muted">
-                        <a href="auth-register.html" class="fw-bold">Create an Account</a>
+                        <a href="auth-register.php" class="fw-bold">Create an Account</a>
                     </div>
                 </div>
             </div>
@@ -246,4 +249,5 @@ session_start();
 <?php
 unset($_SESSION['err']);
 ?>
+
 </html>
