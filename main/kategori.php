@@ -66,7 +66,7 @@
                 $edit = mysqli_fetch_array($edit_result);
             ?>
                 <form action="" method="POST" class="col-md-8 offset-md-2 mt-3">
-
+                    <input type="hidden" name="id_kategori" value="<?php echo $edit['id_kategori'] ?>">
                     <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="<?php echo $edit['nama_kategori'] ?>" required>
                     <button type="submit" name="submit" class="btn btn-info mt-2">Simpan perubahan</button>
                 </form>

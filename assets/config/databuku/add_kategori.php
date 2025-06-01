@@ -3,7 +3,7 @@ session_start();
 
 // memasukkan data kategori ke database
 if (isset($_POST['submit'])) {
-    include_once '../conn.php';
+    include '../conn.php';
 
     $nama_kategori = $_POST['nama_kategori'];
     $query = "INSERT INTO kategori (nama_kategori) VALUES ('$nama_kategori')";
