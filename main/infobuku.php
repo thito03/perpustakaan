@@ -10,6 +10,7 @@
                     <th>Tahun Terbit</th>
                     <th>ISBN</th>
                     <th>Stok</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
