@@ -1965,7 +1965,7 @@
                             <span>Account Settings</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="../assets/config/try_out.php" class="dropdown-item">
+                        <a href="assets/config/try_out.php" class="dropdown-item">
                             <i class="feather-log-out"></i>
                             <span>Logout</span>
                         </a>

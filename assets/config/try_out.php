@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header("../../log/auth-login.php");
+header("location: ../../log/auth-login.php");
 ?>
