@@ -29,8 +29,6 @@ if (!isset($_SESSION['login'])) {
         <!-- [ Footer ] end -->
     </main>
     
-    <?php include 'components/theme-customizer.php'; ?>
-    
     <?php include 'components/scripts.php'; ?>
 </body>
 

@@ -14,36 +14,55 @@
                 </li>
                 <li class="nxl-item">
                     <a href="?main=dashboard" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-cast"></i></span>
+                        <span class="nxl-micon"><i class="feather-home"></i></span>
                         <span class="nxl-mtext">Dashboard</span>
                     </a>
                 </li>
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-cast"></i></span>
-                        <span class="nxl-mtext">Data</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                        <span class="nxl-micon"><i class="feather-book"></i></span>
+                        <span class="nxl-mtext">Data Buku</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="d_buku.php">Data Buku</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="d_anggota.php">Data Anggota</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="?main=infobuku">Info Buku</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="?main=inputbuku">Input buku</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="?main=penerbit">penerbit</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="?main=kategori">kategori</a></li>
                     </ul>
                 </li>
                 <li class="nxl-item nxl-hasmenu">
                     <a href="javascript:void(0);" class="nxl-link">
-                        <span class="nxl-micon"><i class="feather-send"></i></span>
-                        <span class="nxl-mtext">Peinjaman Buku</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                        <span class="nxl-micon"><i class="feather-users"></i></span>
+                        <span class="nxl-mtext">Data anggota</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="apps-chat.html">Peminjaman</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="apps-email.html">Pengembalian</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="">Info Buku</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="">Input buku</a></li>
+                    </ul>
+                </li>
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-arrow-right"></i></span>
+                        <span class="nxl-mtext">Peminjaman</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="">Peminjaman</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="">Pengembalian</a></li>
+                    </ul>
+                </li>
+                <li class="nxl-item nxl-hasmenu">
+                    <a href="javascript:void(0);" class="nxl-link">
+                        <span class="nxl-micon"><i class="feather-arrow-left"></i></span>
+                        <span class="nxl-mtext">Pengembalian</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
+                    </a>
+                    <ul class="nxl-submenu">
+                        <li class="nxl-item"><a class="nxl-link" href="">Peminjaman</a></li>
+                        <li class="nxl-item"><a class="nxl-link" href="">Pengembalian</a></li>
                     </ul>
                 </li>
                 <div class="card text-center">
                     <div class="card-body">
-                        <i class="feather-sunrise fs-4 text-dark"></i>
-                        <h6 class="mt-4 text-dark fw-bolder">Report Center</h6>
-                        <p class="fs-11 my-3 text-dark">Duralux is a production ready CRM to get started up and running easily.</p>
-                        <a href="javascript:void(0);" class="btn btn-primary text-dark w-100">Report Now</a>
+                        <a href="" class="btn btn-primary text-dark w-100">laporan</a>
                     </div>
                 </div>
             </ul>
