@@ -1,11 +1,11 @@
 <div class="main-content">
     <div class="row">
-        <form action="" method="POST" class="col-md-8 offset-md-2 mt-3">
+        <form action="assets/config/databuku/add_kategori.php" method="POST" class="col-md-8 offset-md-2 mt-3">
             <div class="form-group">
                 <label for="nama_kategori">Nama Kategori:</label>
                 <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" required>
             </div>
-            <button type="submit" class="btn btn-info mt-2">Simpan Kategori</button>
+            <button type="submit" name="submit" class="btn btn-info mt-2">Simpan Kategori</button>
         </form>
         
         <div class="col-md-8 offset-md-2 mt-4">

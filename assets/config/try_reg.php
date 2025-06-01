@@ -8,12 +8,14 @@ $pass_confirm = $_POST['pass_confirm'];
 
 session_start();
 
+// Validasi password
 if($password != $pass_confirm){
     $_SESSION['err']['no_same'] = "Password confirmation tidak sama.";
     header('location:../../log/auth-register.php');
     exit();
 }
 
+// Validasi email ganda
 $sql = "SELECT * FROM admin WHERE email = '$email' UNION SELECT * FROM pegawai WHERE email = '$email'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
@@ -22,6 +24,7 @@ if (mysqli_num_rows($result) > 0) {
     exit();
 }
 
+// Validasi job dan memsukkan data ke database
 if ($_POST['job'] == 'admin') {
     $_SESSION['cek']['admin'] = 'kamu mendaftar sebagai admin';
     $sql = "INSERT INTO admin (fullname, email, password) VALUES ('$fullname', '$email', '$password')";
