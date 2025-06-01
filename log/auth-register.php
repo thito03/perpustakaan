@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -30,76 +34,71 @@
 			<script src="https:oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 			<script src="https:oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-</head>
+    </head>
+    
+    <body>
+        <!--! ================================================================ !-->
+        <!--! [Start] Main Content !-->
+        <!--! ================================================================ !-->
+        <main class="auth-minimal-wrapper">
+            <div class="auth-minimal-inner">
+                <div class="minimal-card-wrapper">
+                    <div class="card mb-4 mt-5 mx-4 mx-sm-0 position-relative">
+                        <div class="wd-50 bg-white p-2 rounded-circle shadow-lg position-absolute translate-middle top-0 start-50">
+                            <img src="../assets/images/logo-abbr.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="card-body p-sm-5">
+                            <h2 class="fs-20 fw-bolder mb-4">Register</h2>
+                            <h4 class="fs-13 fw-bold mb-2">Manage all your Duralux crm</h4>
+                            <p class="fs-12 fw-medium text-muted">Let's get you all setup, so you can verify your personal account and begine setting up your profile.</p>
 
-<body>
-    <!--! ================================================================ !-->
-    <!--! [Start] Main Content !-->
-    <!--! ================================================================ !-->
-    <main class="auth-minimal-wrapper">
-        <div class="auth-minimal-inner">
-            <div class="minimal-card-wrapper">
-                <div class="card mb-4 mt-5 mx-4 mx-sm-0 position-relative">
-                    <div class="wd-50 bg-white p-2 rounded-circle shadow-lg position-absolute translate-middle top-0 start-50">
-                        <img src="../assets/images/logo-abbr.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="card-body p-sm-5">
-                        <h2 class="fs-20 fw-bolder mb-4">Register</h2>
-                        <h4 class="fs-13 fw-bold mb-2">Manage all your Duralux crm</h4>
-                        <p class="fs-12 fw-medium text-muted">Let's get you all setup, so you can verify your personal account and begine setting up your profile.</p>
-                        <form action="../assets/config/try_reg.php" method="post" class="w-100 mt-4 pt-2">
-                            <div class="row mb-4">
-                                <div class="col">
-                                    <input type="radio" name="job" value="admin" id="admin">
-                                    <label for="admin"> Admin</label>
+                            <?= isset($_SESSION['err']['ada']) ? '<div class="alert alert-danger" role="alert">' . $_SESSION['err']['ada'] . '</div>' : ''; ?>
+                            <?= isset($_SESSION['cek']['admin']) ? '<div class="alert alert-success" role="alert">' . $_SESSION['cek']['admin'] . '</div>' : ''; ?>
+                            <?= isset($_SESSION['cek']['pegawai']) ? '<div class="alert alert-success" role="alert">' . $_SESSION['cek']['pegawai'] . '</div>' : ''; ?>
+
+                            <form action="../assets/config/try_reg.php" method="post" class="w-100 mt-4 pt-2">
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <input type="radio" name="job" value="admin" id="admin">
+                                        <label for="admin"> Admin</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="radio" name="job" value="pegawai" id="pegawai" checked>
+                                        <label for="pegawai"> Pegawai</label>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <input type="radio" name="job" value="pegawai" id="pegawai" checked>
-                                    <label for="pegawai"> Pegawai</label>
+                                <div class="mb-4">
+                                    <input type="text" class="form-control" name="fullname" placeholder="Full Name" required>
                                 </div>
-                            </div>
-                            <div class="mb-4">
-                                <input type="text" class="form-control" name="fullname" placeholder="Full Name" required>
-                            </div>
-                            <div class="mb-4">
-                                <input type="email" class="form-control" name="email" placeholder="Email" required>
-                            </div>
-                            <div class="mb-4 generate-pass">
-                                <div class="input-group field">
-                                    <input type="password" name="password" class="form-control password" id="newPassword" placeholder="Password Confirm">
-                                    <div class="input-group-text c-pointer gen-pass" data-bs-toggle="tooltip" title="Generate Password"><i class="feather-hash"></i></div>
-                                    <div class="input-group-text border-start bg-gray-2 c-pointer show-pass" data-bs-toggle="tooltip" title="Show/Hide Password"><i></i></div>
+                                <div class="mb-4">
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
                                 </div>
-                                <div class="progress-bar mt-2">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
+                                <div class="mb-4">
+                                        <input type="password" name="password" class="form-control" id="newPassword" placeholder="Password Confirm" required>
                                 </div>
-                            </div>
-                            <div class="mb-4">
-                                <input type="password" class="form-control" name="password_confirm" id="passwordConfirm" placeholder="Password again" required>
-                            </div>
-                            <div id="passwordAlert" class="alert alert-danger d-none" role="alert">
-                                password tidak sesuai.
-                            </div>
-                            <div class="mt-4">
-                                <div class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" class="custom-control-input" id="receiveMial" required>
-                                    <label class="custom-control-label c-pointer text-muted" for="receiveMial" style="font-weight: 400 !important">Yes, I wnat to receive Duralux community emails</label>
+                                <div class="mb-4">
+                                    <input type="password" class="form-control" name="pass_confirm" id="passwordConfirm" placeholder="Password again" required>
                                 </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="termsCondition" required>
-                                    <label class="custom-control-label c-pointer text-muted" for="termsCondition" style="font-weight: 400 !important">I agree to all the <a href="">Terms &amp; Conditions</a> and <a href="">Fees</a>.</label>
+                                
+                                <?= isset($_SESSION['err']['no_same']) ? '<div class="alert alert-danger" role="alert">' . $_SESSION['err']['no_same'] . '</div>' : ''; ?>
+                                
+                                <div class="mt-4">
+                                    <div class="custom-control custom-checkbox mb-2">
+                                        <input type="checkbox" class="custom-control-input" id="receiveMial" required>
+                                        <label class="custom-control-label c-pointer text-muted" for="receiveMial" style="font-weight: 400 !important">Yes, I wnat to receive Duralux community emails</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="termsCondition" required>
+                                        <label class="custom-control-label c-pointer text-muted" for="termsCondition" style="font-weight: 400 !important">I agree to all the <a href="">Terms &amp; Conditions</a> and <a href="">Fees</a>.</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mt-5">
-                                <button type="submit" class="btn btn-lg btn-primary w-100">Create Account</button>
-                            </div>
-                        </form>
-                        <div class="mt-5 text-muted">
-                            <span>Already have an account?</span>
-                            <a href="auth-login.html" class="fw-bold">Login</a>
+                                <div class="mt-5">
+                                    <button type="submit" class="btn btn-lg btn-primary w-100">Create Account</button>
+                                </div>
+                            </form>
+                            <div class="mt-5 text-muted">
+                                <span>Already have an account?</span>
+                                <a href="auth-login.php" class="fw-bold">Login</a>
                         </div>
                     </div>
                 </div>
@@ -265,5 +264,8 @@
     <script src="../assets/js/theme-customizer-init.min.js"></script>
     <!--! END: Theme Customizer !-->
 </body>
-
+<?php 
+unset($_SESSION['err']); 
+unset($_SESSION['cek']);
+?>
 </html>
