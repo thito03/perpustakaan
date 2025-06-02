@@ -1,6 +1,12 @@
 <div class="main-content">
     <div class="row">
-        <form action="proses_input_b.php" method="post" class="col-md-8 offset-md-2">
+        <?php
+        if (isset($_SESSION['success']['simpan_b'])) {
+            echo "<div class='alert alert-success'>" . $_SESSION['success']['simpan_b'] . "</div>";
+            unset($_SESSION['success']['simpan_b']);
+        }
+        ?>
+        <form action="assets/config/databuku/add_buku.php" method="post" class="col-md-8 offset-md-2">
             <div class="form-group">
             <label for="kode">Kode / ISBN:</label>
             <input type="text" class="form-control" id="kode" name="kode" required>
@@ -13,13 +19,18 @@
             <label for="penerbit">Penerbit:</label>
             <select class="form-control" id="penerbit" name="penerbit" required>
                 <option value="">-- Pilih Penerbit --</option>
-                <option value="Gramedia">Gramedia</option>
-                <option value="Erlangga">Erlangga</option>
-                <option value="Mizan">Mizan</option>
-                <option value="Andi">Andi</option>
-                <option value="Bentang">Bentang</option>
-                <option value="Deepublish">Deepublish</option>
-                <option value="Gadjah Mada University Press">Gadjah Mada University Press</option>
+                <?php
+                include 'assets/config/conn.php';
+                $query = "SELECT * FROM penerbit";
+                $result = mysqli_query($conn, $query);
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<option value='" . $row['id_penerbit'] . "'>" . $row['nama_penerbit'] . "</option>";
+                    }
+                } else {
+                    echo "<option value=''>Tidak ada penerbit tersedia</option>";
+                }   
+                ?>
             </select>
             </div>
             <div class="form-group">
@@ -28,31 +39,34 @@
             </div>
             <div class="form-group">
             <label for="tahun">Tahun Terbit (Tahun):</label>
-            <input type="text" class="form-control" id="tahun" name="tahun" required>
+            <input type="number" class="form-control" id="tahun" name="tahun" required>
             </div>
             <div class="form-group">
             <label for="stok">Stok:</label>
-            <input type="text" class="form-control" id="stok" name="stok" required>
+            <input type="number" class="form-control" id="stok" name="stok" required>
             </div>
             <div class="form-group">
             <label for="kategori">Kategori:</label>
             <select class="form-control" id="kategori" name="kategori" required>
                 <option value="">-- Pilih Kategori --</option>
-                <option value="Fiksi">Fiksi</option>
-                <option value="Non-Fiksi">Non-Fiksi</option>
-                <option value="Komik">Komik</option>
-                <option value="Ensiklopedia">Ensiklopedia</option>
-                <option value="Biografi">Biografi</option>
-                <option value="Teknologi">Teknologi</option>
-                <option value="Sains">Sains</option>
-                <option value="Sejarah">Sejarah</option>
+                <?php
+                $query = "SELECT * FROM kategori";
+                $result = mysqli_query($conn, $query);
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<option value='" . $row['id_kategori'] . "'>" . $row['nama_kategori'] . "</option>";
+                    }
+                } else {
+                    echo "<option value=''>Tidak ada kategori tersedia</option>";
+                }
+                ?>
             </select>
             </div>
             <div class="form-group">
             <label for="sinopsis">Sinopsis:</label>
             <textarea class="form-control" id="sinopsis" name="sinopsis" rows="4" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary mt-2 mb-4">Simpan</button>
+            <button type="submit" name="submit" class="btn btn-primary mt-2 mb-4">Simpan</button>
         </form>
     </div>
 </div>
